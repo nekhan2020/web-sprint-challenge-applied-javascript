@@ -61,7 +61,7 @@ const Card = (article) => {
 // Card(articleTest);
 
 const cardAppender = (data) => {
-  const cardContainer = document.querySelector(".cards-container");
+  const cardContainer = document.querySelector(data);
   const axiosInfo = axios
     // .get("#")
     .get("https://lambda-times-api.herokuapp.com/articles")
