@@ -10,8 +10,28 @@ const Header = (title, date, temp) => {
   //    <h1>{ title }</h1>
   //    <span class="temp">{ temp }</span>
   //  </div>
-  //
-}
+  //! Elements
+  const headerDiv = document.createElement("div");
+  const dateSpan = document.createElement("span");
+  const headerH1 = document.createElement("h1");
+  const tempSpan = document.createElement("span");
+
+  //! Assigning Classes
+  headerDiv.classList.add("header");
+  dateSpan.classList.add("date");
+  tempSpan.classList.add("temp");
+
+  //! adding text
+  //todo tried with both a template string and just the variable by itself and getting undefined.. not sure whats going on and codeGrade isnt working as well
+  headerH1.textContent = `${title}`;
+  dateSpan.textContent = `${date}`;
+  tempSpan.textContent = `${temp}`;
+
+  //! Appends
+  headerDiv.append(dateSpan, headerH1, tempSpan);
+  // console.log(headerDiv);
+  return headerDiv;
+};
 
 const headerAppender = (selector) => {
   // TASK 2
@@ -20,6 +40,10 @@ const headerAppender = (selector) => {
   // It should create a header using the Header component above, passing arguments of your choosing.
   // It should append the header to the element in the DOM that matches the given selector.
   //
-}
+  let headerAdd = document.querySelector(selector);
 
-export { Header, headerAppender }
+  headerAdd.append(Header(`Lambda Times`, `February 12th, 2021`, `32F`));
+  // console.log(headerAdd);
+};
+
+export { Header, headerAppender };
