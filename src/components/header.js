@@ -22,7 +22,6 @@ const Header = (title, date, temp) => {
   tempSpan.classList.add("temp");
 
   //! adding text
-  //todo tried with both a template string and just the variable by itself and getting undefined.. not sure whats going on and codeGrade isnt working as well
   headerH1.textContent = `${title}`;
   dateSpan.textContent = `${date}`;
   tempSpan.textContent = `${temp}`;
@@ -42,7 +41,7 @@ const headerAppender = (selector) => {
   //
   let headerAdd = document.querySelector(selector);
 
-  headerAdd.append(Header(`Lambda Times`, `February 12th, 2021`, `32F`));
+  headerAdd.append(Header(`Lambda Times`, `February 12th, 2021`, `32°`));
   // console.log(headerAdd);
 };
 

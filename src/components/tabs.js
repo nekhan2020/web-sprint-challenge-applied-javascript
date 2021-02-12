@@ -12,8 +12,7 @@
 //   <div class="tab">technology</div>
 // </div>
 //
-//! remember to switch axios get to actual endpoint (was changed to avoid axios timeout during build) - this had passed codeGrade when changed to correct version
-//!
+
 import axios from "axios";
 
 const Tabs = (topics) => {
@@ -39,15 +38,16 @@ const tabsAppender = (selector) => {
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
   //
   axios
-    .get(`#`)
-    // .get(`https://lambda-times-api.herokuapp.com/topics`)
+    // .get(`#`)
+    .get(`https://lambda-times-api.herokuapp.com/topics`)
     .then((res) => {
       const axiosInfo = res.data.topics;
+      // const axiosInfo = [`javascript`, `bootstrap`, `technology`];
       const selectTab = document.querySelector(selector);
       selectTab.appendChild(Tabs(axiosInfo));
     })
-    .catch((error) => {
-      console.log(`something went wrong`);
+    .catch((e) => {
+      console.log(`something went wrong: ${e}`);
     });
 };
 export { Tabs, tabsAppender };
